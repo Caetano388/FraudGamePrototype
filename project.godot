@@ -51,7 +51,3 @@ config/features=PackedStringArray("4.0", "Vulkan Mobile")
 [autoload]
 
 CardDatabase="*res://scripts/classes/CardDatabase.gd"
-
-[rendering]
-
-vulkan/rendering/back_end=1

@@ -14,13 +14,55 @@ slot/0/right_enabled = false
 slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
 script = ExtResource( "1_np2yg" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Description" type="Label" parent="."]
+[node name="Inputs" type="HBoxContainer" parent="."]
 offset_left = 18.0
 offset_top = 42.0
 offset_right = 186.0
-offset_bottom = 65.0
+offset_bottom = 42.0
+
+[node name="Description" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 44.0
+offset_right = 186.0
+offset_bottom = 67.0
+
+[node name="Effects" type="HBoxContainer" parent="."]
+offset_left = 18.0
+offset_top = 69.0
+offset_right = 186.0
+offset_bottom = 69.0
+
+[node name="Outputs" type="HBoxContainer" parent="."]
+offset_left = 18.0
+offset_top = 71.0
+offset_right = 186.0
+offset_bottom = 71.0

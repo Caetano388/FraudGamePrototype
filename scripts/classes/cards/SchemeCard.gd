@@ -7,6 +7,9 @@ enum CardConnectionTypes {
 	POPULARITY,
 }
 
+var connection_button := preload("res://objects/connection_button.tscn")
+var effect_desc := preload("res://objects/effect_description.tscn")
+
 var liability : int
 var desc : String
 
@@ -22,6 +25,19 @@ func load_card_resource(data : CardResource) -> void:
 	input_slots = data.inputs
 	output_slots = data.outputs
 	effects = data.effects
+	
+	for effect in data.effects:
+		var fx := effect_desc.instantiate()
+		fx.set_effect_description(effect)
+		$Effects.add_child(fx)
+
+	for in_slot in input_slots:
+		var new_input := connection_button.instantiate()
+		$Inputs.add_child(new_input)
+
+	for out_slot in output_slots:
+		var new_output := connection_button.instantiate()
+		$Outputs.add_child(new_output)
 
 func _ready() -> void:
 	$Description.text = desc

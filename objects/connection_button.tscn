@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo8aqbegvgqcc"]
+
+[ext_resource type="Script" path="res://scripts/classes/cards/ConnectionButton.gd" id="1_0vf3q"]
+
+[node name="ConnectionButton" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_0vf3q" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 31.0
