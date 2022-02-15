@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Resource",
+"class": &"CardResource",
+"language": &"GDScript",
+"path": "res://scripts/data/CardRes.gd"
+}, {
+"base": "Node",
+"class": &"GameManger",
+"language": &"GDScript",
+"path": "res://scripts/classes/GameManager.gd"
+}, {
+"base": "RefCounted",
+"class": &"LocalState",
+"language": &"GDScript",
+"path": "res://scripts/classes/LocalState.gd"
+}, {
+"base": "GraphEdit",
+"class": &"Scheme",
+"language": &"GDScript",
+"path": "res://scripts/classes/cards/Scheme.gd"
+}, {
+"base": "GraphNode",
+"class": &"SchemeCard",
+"language": &"GDScript",
+"path": "res://scripts/classes/cards/SchemeCard.gd"
+}]
+_global_script_class_icons={
+"CardResource": "",
+"GameManger": "",
+"LocalState": "",
+"Scheme": "",
+"SchemeCard": ""
+}
+
+[application]
+
+config/name="prototype_fraud"
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.0", "Vulkan Mobile")
+
+[autoload]
+
+CardDatabase="*res://scripts/classes/CardDatabase.gd"
+
+[rendering]
+
+vulkan/rendering/back_end=1

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cymlwaj5ond5l"]
+
+[ext_resource type="Script" path="res://scripts/data/CardRes.gd" id="1_r5xne"]
+
+[resource]
+script = ExtResource( "1_r5xne" )
+title = "Local Drug Dealer"
+desc = "A local drug dealer needs you to clean that money."
+cost = 5
+inputs = null
+outputs = [0]
+money_cap = null
+respect_req = null
+liability = null
+effects = ["new_state.money += 100"]

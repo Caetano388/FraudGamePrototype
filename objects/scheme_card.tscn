@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://6v1yp74p8so"]
+
+[ext_resource type="Script" path="res://scripts/classes/cards/SchemeCard.gd" id="1_np2yg"]
+
+[node name="SchemeCard" type="GraphNode"]
+offset_right = 204.0
+offset_bottom = 135.0
+resizable = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+script = ExtResource( "1_np2yg" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 42.0
+offset_right = 186.0
+offset_bottom = 65.0

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cnv7dvcwii2pu"]
+
+[ext_resource type="Script" path="res://scripts/data/CardRes.gd" id="1_bpmww"]
+
+[resource]
+script = ExtResource( "1_bpmww" )
+title = "Small Scale Financial Crime"
+desc = "A small time fraudster needs his questionable \"investment fund\" laundered."
+cost = 10
+inputs = null
+outputs = [0]
+money_cap = null
+respect_req = null
+liability = null
+effects = ["new_state.money += 100"]
