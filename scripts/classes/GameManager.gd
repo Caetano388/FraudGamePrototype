@@ -2,12 +2,15 @@ extends Node
 class_name GameManger
 
 var scheme_card = preload("res://objects/scheme_card.tscn")
-@onready var scheme = $Scheme
+@onready var scheme : Node = $Scheme
 
-var schemer_state = {
-	'player_name': '',
-	'points': 0
+var game_state := {
+	'players': {},
+	'schemer': 0,
+	'turn': 0
 }
+# TODO: Make this a singleton, move scheme, etc to a player scene instead,
+# Implement Multiplayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

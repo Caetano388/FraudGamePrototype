@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://k1n4p16mhxsr"]
+
+[node name="PlaceableCard" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -13,3 +13,4 @@ money_cap = null
 respect_req = null
 liability = null
 effects = ["new_state.money += 100"]
+effects_desc = ["Puts 100 money into the scheme"]

@@ -22,12 +22,12 @@ _global_script_classes=[{
 "base": "RefCounted",
 "class": &"LocalState",
 "language": &"GDScript",
-"path": "res://scripts/classes/LocalState.gd"
+"path": "res://scripts/state/LocalState.gd"
 }, {
-"base": "GraphEdit",
-"class": &"Scheme",
+"base": "Node",
+"class": &"Player",
 "language": &"GDScript",
-"path": "res://scripts/classes/cards/Scheme.gd"
+"path": "res://scripts/classes/Player.gd"
 }, {
 "base": "GraphNode",
 "class": &"SchemeCard",
@@ -38,7 +38,7 @@ _global_script_class_icons={
 "CardResource": "",
 "GameManger": "",
 "LocalState": "",
-"Scheme": "",
+"Player": "",
 "SchemeCard": ""
 }
 
