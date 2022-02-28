@@ -4,6 +4,7 @@ var cards : Array[Resource]
 var names : Dictionary
 var descriptions : Dictionary
 
+
 func _ready() -> void:
 	var directory := Directory.new()
 	directory.open("res://data/cards")
@@ -16,6 +17,7 @@ func _ready() -> void:
 		filename = directory.get_next()
 	load_json_files('names', names, directory)
 	load_json_files('descs', descriptions, directory)
+
 
 func load_json_files(
 	dir : String,
@@ -38,12 +40,14 @@ func load_json_files(
 			file.close()
 			filename = directory.get_next()
 
+
 func get_card(card_name : String) -> Resource:
 	for c in cards:
 		if c.name == card_name:
 			return c
 	
 	return null
+
 
 func get_all_cards() -> Array[Resource]:
 	return cards
