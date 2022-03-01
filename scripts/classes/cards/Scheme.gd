@@ -44,11 +44,11 @@ func remove_connection(connection_to_remove : Connection) -> bool:
 	return false
 
 
-func calculate_impact() -> LocalState:
+func calculate_impact() -> void:
 	completed_cards = {}
 	for out_card in connections:
 		_run_state_updates(out_card)
-	return connections
+
 
 func _run_state_updates(card: int) -> LocalState:
 	if (completed_cards.has(card)):
