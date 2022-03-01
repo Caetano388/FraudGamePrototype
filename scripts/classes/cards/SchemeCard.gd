@@ -19,6 +19,7 @@ var index: int
 
 var connection_button := preload("res://objects/connection_button.tscn")
 var effect_desc := preload("res://objects/effect_description.tscn")
+var connection_string := preload("res://objects/connection_string.tscn")
 
 var liability: int
 var desc: String
@@ -39,7 +40,8 @@ var input_slots: Array[CardConnectionTypes]
 var output_slots: Array[CardConnectionTypes]
 var connection_slots := { INPUT: input_slots, OUTPUT: output_slots }
 @onready var connection_containers: Array[Node] = [$Inputs, $Outputs]
-
+var scheme: Scheme
+var con_string: ConnectionString
 
 func load_card_resource(data: CardResource) -> void:
 	title = data.title
@@ -87,11 +89,36 @@ func _prepare_slots(direction: int) -> void:
 	var slots: Array[CardConnectionTypes] = connection_slots[direction]
 	var container := connection_containers[INPUT]
 	for slot in slots:
-		container.add_child(connection_button.instantiate())
+		var new_connection_button := connection_button.instantiate()
+		container.add_child(new_connection_button)
+		new_connection_button.direction = bool(direction)
+		new_connection_button.button.pressed.connect(
+			_on_slot_pressed(new_connection_button.type,
+			new_connection_button.direction,
+			new_connection_button
+		))
+		scheme.began_connecting.connect(new_connection_button._connecting)
+		scheme.completed_connecting.connect(new_connection_button._stop_connecting)
+
+
+func _on_slot_pressed(type: int, direction: bool, btn: Node) -> void:
+	if scheme.is_connecting:
+		scheme.completed_connecting.emit(index)
+		if con_string:
+			remove_child(con_string)
+	else:
+		scheme.began_connecting.emit(type, index, direction)
+		con_string = connection_string.instantiate()
+		con_string.add_point(btn.position)
+		con_string.add_point(get_viewport().get_mouse_position())
+		con_string.follow_mouse = true
+		add_child(con_string)
 
 
 func _ready() -> void:
 	$Description.text = desc
+	scheme = get_parent()
+
 
 func apply_effects(new_incoming_state: LocalState) -> LocalState:
 	incoming_state = new_incoming_state

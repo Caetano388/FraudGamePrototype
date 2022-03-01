@@ -1,7 +1,7 @@
 extends Node
 class_name GameManger
 
-var scheme_card = preload("res://objects/scheme_card.tscn")
+var scheme_card := preload("res://objects/scheme_card.tscn")
 @onready var scheme: Node = $Scheme
 
 var game_state := {

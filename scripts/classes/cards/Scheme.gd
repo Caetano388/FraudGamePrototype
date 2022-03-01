@@ -6,6 +6,11 @@ class Connection:
 	var second_card: int
 	var type: SchemeCard.CardConnectionTypes
 
+
+signal began_connecting(type: int, card: int, direction: bool)
+signal completed_connecting(card: int)
+
+
 var cards: Array[SchemeCard]
 var connections: Dictionary
 
@@ -15,9 +20,16 @@ var money_capacity_req: int
 var respect_req: int
 var hype: int
 
+var is_connecting: bool = false
+var desired_type: int
+var first_card: int
+var desired_direction: bool
+
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _ready() -> void:
+	began_connecting.connect(_on_began_connecting)
+	completed_connecting.connect(_on_completed_connecting)
 
 
 func add_connection(new_connection : Connection) -> bool:
@@ -60,3 +72,22 @@ func _run_state_updates(card: int) -> LocalState:
 	updated_state = cards[card].apply_effects(updated_state)
 	completed_cards[card] = updated_state
 	return updated_state
+
+
+func _on_began_connecting(type: int, card: int, direction: bool) -> void:
+	is_connecting = true
+	desired_type = type
+	first_card = card
+	desired_direction = direction
+
+
+func _on_completed_connecting(card: int) -> void:
+	var new_connection := Connection.new()
+	new_connection.first_card = first_card
+	new_connection.second_card = card
+	new_connection.type = desired_type
+	if desired_direction:
+		new_connection.first_card = card
+		new_connection.second_card = card
+#	if !add_connection(new_connection):
+	is_connecting = false
