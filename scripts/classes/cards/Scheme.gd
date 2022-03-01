@@ -21,26 +21,19 @@ func _ready():
 
 
 func add_connection(new_connection : Connection) -> bool:
-	var cn := connections[new_connection.first_card]
-	if cn.outputs.has(new_connection.second_card):
+	var cn := connections[new_connection.second_card]
+	if cn.inputs.has(new_connection.first_card):
 		return false
 	else:
-		cn.outputs[new_connection.second_card] = new_connection.type
-		connections[new_connection.second_card].inputs[new_connection.first_card] = type
+		cn.inputs[new_connection.first_card] = new_connection.type
 	return true
 
 
 func remove_connection(connection_to_remove : Connection) -> bool:
-	if connections.has(connection_to_remove.first_card):
-		var cn := connections[connection_to_remove.first_card]
-		if cn.outputs.has(connection_to_remove.second_card):
-			cn.outputs.erase(connection_to_remove.second_card)
-			cn = connections[connection_to_remove]
-			if cn.inputs.has(connection_to_remove.first_card):
-				cn.inputs.erase(connection_to_remove.first_card)
-			else 
-				return false
-			return true
+	var cn := connections[connection_to_remove.second_card]
+	if cn.inputs.has(connection_to_remove.first_card):
+		cn.inputs.erase(connection_to_remove.first_card)
+		return true
 	return false
 
 
